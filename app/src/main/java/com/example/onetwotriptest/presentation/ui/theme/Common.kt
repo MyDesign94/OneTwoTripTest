@@ -14,19 +14,22 @@ data class TripColors(
     val secondaryBackground: Color,
     val tintColor: Color,
     val controlColor: Color,
-    val errorColor: Color
+    val errorColor: Color,
 )
 
 data class TripTypography(
     val heading: TextStyle,
     val body: TextStyle,
     val toolbar: TextStyle,
-    val caption: TextStyle
+    val caption: TextStyle,
 )
 
 data class TripShape(
-    val padding: Dp,
-    val cornersStyle: Shape
+    val standardPadding: Dp,
+    val bigPadding: Dp,
+    val smallPadding: Dp,
+    val elevation: Dp,
+    val cornersStyle: Shape,
 )
 
 object TripTheme {

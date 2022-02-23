@@ -13,10 +13,13 @@ import androidx.compose.ui.unit.sp
 fun OneTwoTripTestTheme(
     style: TripStyle = TripStyle.Purple,
     textSize: TripSize = TripSize.Medium,
-    paddingSize: TripSize = TripSize.Medium,
+    elevationSize: TripSize = TripSize.Medium,
+    standardPaddingSize: TripSize = TripSize.Medium,
+    bigPaddingSize: TripSize = TripSize.Medium,
+    smallPaddingSize: TripSize = TripSize.Medium,
     corners: TripCorners = TripCorners.Rounded,
     darkTheme: Boolean = isSystemInDarkTheme(),
-    content: @Composable () -> Unit
+    content: @Composable () -> Unit,
 ) {
     val colors = when (darkTheme) {
         true -> {
@@ -74,10 +77,25 @@ fun OneTwoTripTestTheme(
     )
 
     val shapes = TripShape(
-        padding = when (paddingSize) {
+        bigPadding = when (bigPaddingSize) {
+            TripSize.Small -> 20.dp
+            TripSize.Medium -> 24.dp
+            TripSize.Big -> 28.dp
+        },
+        standardPadding = when (standardPaddingSize) {
             TripSize.Small -> 12.dp
             TripSize.Medium -> 16.dp
             TripSize.Big -> 20.dp
+        },
+        smallPadding = when (smallPaddingSize) {
+            TripSize.Small -> 3.dp
+            TripSize.Medium -> 6.dp
+            TripSize.Big -> 9.dp
+        },
+        elevation = when (elevationSize) {
+            TripSize.Small -> 2.dp
+            TripSize.Medium -> 4.dp
+            TripSize.Big -> 6.dp
         },
         cornersStyle = when (corners) {
             TripCorners.Flat -> RoundedCornerShape(0.dp)

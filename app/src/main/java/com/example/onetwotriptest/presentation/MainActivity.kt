@@ -1,43 +1,48 @@
 package com.example.onetwotriptest.presentation
 
+import android.content.res.Configuration
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Surface
-import androidx.compose.material.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
-import com.example.onetwotriptest.presentation.ui.theme.OneTwoTripTestTheme
+import androidx.compose.runtime.SideEffect
+import com.example.onetwotriptest.presentation.screens.MainScreen
+import com.example.onetwotriptest.presentation.ui.theme.*
+import com.google.accompanist.systemuicontroller.rememberSystemUiController
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         setContent {
-            OneTwoTripTestTheme {
-                // A surface container using the 'background' color from the theme
-                Surface(modifier = Modifier.fillMaxSize(),
-                    color = MaterialTheme.colors.background) {
-                    Greeting("Android")
+            OneTwoTripTestTheme(
+                style = TripStyle.Blue,
+                textSize = TripSize.Medium,
+                corners = TripCorners.Rounded,
+                bigPaddingSize = TripSize.Medium,
+                standardPaddingSize = TripSize.Medium,
+                smallPaddingSize = TripSize.Medium,
+                elevationSize = TripSize.Small
+            ) {
+                val systemUiController = rememberSystemUiController()
+                SideEffect {
+                    systemUiController.setSystemBarsColor(
+                        color = when (this.resources.configuration.uiMode.and(Configuration.UI_MODE_NIGHT_MASK)) {
+                            Configuration.UI_MODE_NIGHT_YES -> {
+                                blueLightPalette.tintColor
+                            }
+                            Configuration.UI_MODE_NIGHT_NO -> {
+                                blueDarkPalette.tintColor
+                            }
+                            else -> {
+                                blueDarkPalette.tintColor
+                            }
+                        }
+                    )
                 }
+                MainScreen()
             }
         }
-    }
-}
-
-@Composable
-fun Greeting(name: String) {
-    Text(text = "Hello $name!")
-}
-
-@Preview(showBackground = true)
-@Composable
-fun DefaultPreview() {
-    OneTwoTripTestTheme {
-        Greeting("Android")
     }
 }

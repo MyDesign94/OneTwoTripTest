@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">OneTwoTripTest</string>
+    <string name="search">Search flights</string>
+    <string name="first_screen">FirstScreen</string>
+    <string name="flights">Flights</string>
+    <string name="detailed_info">Detailed info</string>
 </resources>
