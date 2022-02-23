@@ -2,6 +2,7 @@ package com.example.onetwotriptest.presentation.screens.main_screen
 
 import androidx.compose.runtime.Composable
 import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.navigation.NavDestination
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
@@ -13,6 +14,7 @@ import com.example.onetwotriptest.presentation.screens.flights_list_screen.Fligh
 @Composable
 fun NavGraph(
     navController: NavHostController,
+    currentDestination: NavDestination?,
 ) {
     NavHost(navController = navController, startDestination = Screens.FirstScreen.route) {
         composable(Screens.FirstScreen.route) {
@@ -22,7 +24,8 @@ fun NavGraph(
             val flightsListScreenViewModel = hiltViewModel<FlightsListScreenViewModel>()
             FlightsListScreen(
                 viewModel = flightsListScreenViewModel,
-                navController = navController
+                navController = navController,
+                currentDestination = currentDestination
             )
         }
         composable(Screens.DetailedInfoScreen.route) {

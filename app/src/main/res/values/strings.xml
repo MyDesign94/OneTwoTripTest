@@ -4,4 +4,12 @@
     <string name="first_screen">FirstScreen</string>
     <string name="flights">Flights</string>
     <string name="detailed_info">Detailed info</string>
+    <string name="loading_text">Loading flight information</string>
+    <string-array name="number_of_transfers">
+        <item>Straight</item>
+        <item>1 transfer</item>
+        <item>2 transfers</item>
+        <item>3 transfer</item>
+        <item>4 transfer</item>
+    </string-array>
 </resources>

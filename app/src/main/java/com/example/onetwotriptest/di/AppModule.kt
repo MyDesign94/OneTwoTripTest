@@ -1,5 +1,6 @@
 package com.example.onetwotriptest.di
 
+import android.content.Context
 import com.example.onetwotriptest.core.Constant.BASE_URL
 import com.example.onetwotriptest.data.remote.FlightsAPI
 import com.example.onetwotriptest.data.repository.GetAllFlightsRepositoryImpl
@@ -10,6 +11,7 @@ import com.example.onetwotriptest.domain.use_case.GetAllFlightsUseCase
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
+import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -54,13 +56,13 @@ object AppModule {
 
     @Provides
     @Singleton
-    fun provideUseCase(repository: GetAllFlightsRepository): GetAllFlightsUseCase {
-        return GetAllFlightsInteractor(repository)
+    fun provideUseCase(repository: GetAllFlightsRepository ,@ApplicationContext context: Context): GetAllFlightsUseCase {
+        return GetAllFlightsInteractor(repository, context = context)
     }
 
     @Provides
     @Singleton
-    fun provideFlightsReduce(useCase: GetAllFlightsUseCase): FlightsReduce {
+    fun provideFlightsReduce(useCase: GetAllFlightsUseCase, @ApplicationContext context: Context): FlightsReduce {
         return FlightsReduce(useCase = useCase)
     }
 }
