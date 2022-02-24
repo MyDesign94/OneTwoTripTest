@@ -8,7 +8,7 @@ data class FlightEntitie(
     val transfers: String,
     val fromTo: String,
     val prices: List<PriceEntitie>,
-    val trips: List<Trip>
+    val trips: List<TripEnitie>
 )
 
 data class PriceEntitie(

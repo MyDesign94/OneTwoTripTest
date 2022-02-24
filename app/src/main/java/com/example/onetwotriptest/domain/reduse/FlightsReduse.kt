@@ -13,7 +13,7 @@ class FlightsReduce @Inject constructor(
     private val useCase: GetAllFlightsUseCase,
 ) {
 
-    operator fun invoke(event: FlightsListScreenEvent, currentState: FlightsListScreenViewState):
+    fun reduce(event: FlightsListScreenEvent):
             Flow<FlightsListScreenViewState> = flow {
         when (event) {
             FlightsListScreenEvent.ShowListFlights -> {
