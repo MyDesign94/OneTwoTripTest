@@ -61,9 +61,9 @@ fun OneTwoTripTestTheme(
         ),
         toolbar = TextStyle(
             fontSize = when (textSize) {
-                TripSize.Small -> 14.sp
-                TripSize.Medium -> 16.sp
-                TripSize.Big -> 18.sp
+                TripSize.Small -> 16.sp
+                TripSize.Medium -> 18.sp
+                TripSize.Big -> 20.sp
             },
             fontWeight = FontWeight.Medium
         ),

@@ -25,7 +25,7 @@ class  FlightsListScreenViewModel @Inject constructor(
     val state = _state.asStateFlow()
 
     override fun obtainEvent(event: FlightsListScreenEvent) {
-        when (val currentState = _state.value) {
+        when (_state.value) {
             FlightsListScreenViewState.Loading -> {
                 viewModelScope.launch(Dispatchers.Default) {
                     reduce.reduce(event).collect {

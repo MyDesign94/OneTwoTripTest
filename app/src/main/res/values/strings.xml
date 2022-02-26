@@ -4,14 +4,22 @@
     <string name="first_screen">FirstScreen</string>
     <string name="flights">Flights</string>
     <string name="detailed_info">Detailed info</string>
-    <string name="loading_text">Loading flight information</string>
+    <string name="loading_text">Loading flight information…</string>
     <string name="confirm">Confirm</string>
-    <string name="RUB">&#8381;</string>
-    <string-array name="number_of_transfers">
-        <item>Straight</item>
-        <item>1 transfer</item>
-        <item>2 transfers</item>
-        <item>3 transfer</item>
-        <item>4 transfer</item>
+    <string name="RUB">&#160;&#8381;</string>
+    <string name="select_flight_class">Select flight class</string>
+    <string name="airline_flight">AEROFLOT SU-1835</string>
+    <string name="transplant">Transplant</string>
+    <string name="airbus">Airbus A321 SL,&#160;</string>
+    <string-array name="number_of_transplants">
+        <item>Direct flight</item>
+        <item>One transplant</item>
+        <item>Two transplant</item>
+        <item>Thee transplant</item>
+        <item>Four transplant</item>
+    </string-array>
+    <string-array name="buy">
+        <item>Buy ticket for %s &#8381;</item>
+        <item>Buy tickets for %s &#8381;</item>
     </string-array>
 </resources>

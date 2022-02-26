@@ -19,6 +19,7 @@ import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.onetwotriptest.R
+import com.example.onetwotriptest.presentation.screens.widgets.TextEx
 import com.example.onetwotriptest.presentation.ui.theme.OneTwoTripTestTheme
 import com.example.onetwotriptest.presentation.ui.theme.RobotoCondensed
 import com.example.onetwotriptest.presentation.ui.theme.TripTheme
@@ -29,8 +30,9 @@ fun ButtonWidget(
     buttonColors: ButtonColors = ButtonDefaults.buttonColors(TripTheme.colors.tintColor),
     standardSize: Modifier = Modifier.fillMaxWidth(0.7f),
     buttonText: String = stringResource(R.string.search),
-    buttonTextStyle: TextStyle = TripTheme.typography.heading,
+    buttonTextStyle: TextStyle = TripTheme.typography.toolbar,
     textAlign: TextAlign = TextAlign.Center,
+    textColor: Color = TripTheme.colors.primaryBackground,
     onButtonClick: () -> Unit,
 ) {
     Button(
@@ -42,28 +44,10 @@ fun ButtonWidget(
             text = buttonText,
             style = buttonTextStyle,
             modifier = modifier.fillMaxWidth(),
-            textAlign = textAlign
+            textAlign = textAlign,
+            textColor = textColor
         )
     }
-}
-
-@Composable
-fun TextEx(
-    modifier: Modifier = Modifier,
-    text: String = "",
-    style: TextStyle = TripTheme.typography.body,
-    textAlign: TextAlign = TextAlign.Start,
-    textColor: Color = TripTheme.colors.primaryText,
-    fontFamily: FontFamily = RobotoCondensed,
-) {
-    Text(
-        text = text,
-        color = textColor,
-        style = style,
-        fontFamily = fontFamily,
-        textAlign = textAlign,
-        modifier = modifier
-    )
 }
 
 @Preview(showBackground = true)

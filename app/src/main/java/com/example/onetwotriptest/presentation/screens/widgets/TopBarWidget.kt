@@ -19,16 +19,17 @@ import androidx.compose.ui.unit.Dp
 import androidx.navigation.NavDestination
 import com.example.onetwotriptest.R
 import com.example.onetwotriptest.core.Screens
+import com.example.onetwotriptest.presentation.screens.widgets.TextEx
 import com.example.onetwotriptest.presentation.ui.theme.TripTheme
 
 @Composable
-fun FlightsTopBar(
+fun TopBarWidget(
     currentDestination: NavDestination?,
     standardPadding: Dp = TripTheme.shapes.standardPadding,
     bigPadding: Dp = TripTheme.shapes.bigPadding,
     textColor: Color = TripTheme.colors.primaryBackground,
     textStyle: TextStyle = TripTheme.typography.toolbar,
-    backgroundColor: Color = TripTheme.colors.tintColor,
+    backgroundColor: Color = TripTheme.colors.barColor,
     elevation: Dp = TripTheme.shapes.elevation,
     onClick: () -> Unit
 ) {
@@ -37,20 +38,26 @@ fun FlightsTopBar(
         backgroundColor = backgroundColor,
         elevation = elevation,
         title = {
-            Text(
+            TextEx(
                 modifier = Modifier.padding(start = bigPadding, top = standardPadding, bottom = standardPadding),
                 text = when (currentDestination?.route) {
-                    Screens.FlightsScreen.route -> stringResource(id = Screens.FlightsScreen.resourceId)
-                    Screens.DetailedInfoScreen.route -> stringResource(id = Screens.DetailedInfoScreen.resourceId)
-                    else -> { "" }
+                    Screens.FlightsScreen.route -> stringResource(id = Screens.FlightsScreen.resourceId).uppercase()
+                    Screens.FirstScreen.route -> stringResource(id = Screens.FirstScreen.resourceId).uppercase()
+                    else -> { stringResource(id = Screens.DetailedInfoScreen.resourceId).uppercase() }
                 },
                 style = textStyle,
-                color = textColor
+                textColor = textColor
             )
         },
         navigationIcon = {
-            IconButton(onClick = { onClick() }) {
-                Icon(Icons.Filled.ArrowBack, contentDescription = null)
+            if (currentDestination?.route != Screens.FirstScreen.route) {
+                IconButton(onClick = { onClick() }) {
+                    Icon(
+                        Icons.Filled.ArrowBack,
+                        tint = textColor,
+                        contentDescription = null
+                    )
+                }
             }
         }
     )

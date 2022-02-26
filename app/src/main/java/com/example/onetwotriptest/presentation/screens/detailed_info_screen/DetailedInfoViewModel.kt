@@ -1,6 +1,5 @@
 package com.example.onetwotriptest.presentation.screens.detailed_info_screen
 
-import android.util.Log
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -11,7 +10,6 @@ import com.google.gson.Gson
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -21,7 +19,7 @@ class DetailedInfoViewModel @Inject constructor(
     savedStateHandle: SavedStateHandle
 ): ViewModel() {
 
-    private val _viewState = MutableStateFlow<DetailedInfoViewState>(DetailedInfoViewState.DetailedInfo())
+    private val _viewState = MutableStateFlow<DetailedInfoViewState>(DetailedInfoViewState.Loading)
     val viewState = _viewState.asStateFlow()
 
     init {
@@ -35,8 +33,10 @@ class DetailedInfoViewModel @Inject constructor(
         }
         viewModelScope.launch(Dispatchers.Default) {
             _viewState.value =  DetailedInfoViewState.DetailedInfo(
-                selectedClass = chosePrice?.type,
-                flightEntitie = flight
+                selectedClass = chosePrice?.type!!,
+                cost = chosePrice?.amount!!,
+                flightEntitie = flight!!,
+                transplants = flight?.trips?.size!! - 1,
             )
         }
     }

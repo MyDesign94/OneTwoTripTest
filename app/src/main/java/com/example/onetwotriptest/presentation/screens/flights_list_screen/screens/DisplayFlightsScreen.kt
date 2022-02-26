@@ -12,50 +12,34 @@ import androidx.navigation.NavDestination
 import com.example.onetwotriptest.domain.model.FlightEntitie
 import com.example.onetwotriptest.domain.model.PriceEntitie
 import com.example.onetwotriptest.presentation.screens.flights_list_screen.components.FlightCard
-import com.example.onetwotriptest.presentation.screens.flights_list_screen.components.FlightsTopBar
+import com.example.onetwotriptest.presentation.screens.flights_list_screen.components.TopBarWidget
 import com.example.onetwotriptest.presentation.ui.theme.TripTheme
 
 @Composable
 fun DisplayFlightsScreen(
     data: List<FlightEntitie>,
     modifier: Modifier = Modifier,
-    currentDestination: NavDestination?,
-    backgroundColor: Color = Color.Transparent,
     padding: Dp = TripTheme.shapes.standardPadding,
-    onBackPressed: () -> Unit,
     onNavigate: (PriceEntitie, Int) -> Unit
 ) {
-    Scaffold(
-        modifier = modifier
-            .fillMaxSize(),
-        backgroundColor = backgroundColor,
-        topBar = {
-            FlightsTopBar(
-                currentDestination = currentDestination,
-                onClick = { onBackPressed() }
-            )
-        }
+    Box(
+        modifier = modifier.fillMaxSize()
+            .padding(start = padding, end = padding, bottom = padding),
+        contentAlignment = Alignment.Center
     ) {
-        Box(
-            modifier = modifier.fillMaxSize()
-                .padding(start = padding, end = padding, bottom = padding),
-            contentAlignment = Alignment.Center
+        LazyColumn(
+            modifier = modifier.fillMaxWidth()
         ) {
-            LazyColumn(
-                modifier = modifier.fillMaxWidth()
-            ) {
-                data.forEachIndexed { index, flightEntitie ->
-                    item {
-                        FlightCard(
-                            value = flightEntitie,
-                            onNavigate = { price ->
-                                onNavigate(price, index)
-                            }
-                        )
-                    }
+            data.forEachIndexed { index, flightEntitie ->
+                item {
+                    FlightCard(
+                        value = flightEntitie,
+                        onNavigate = { price ->
+                            onNavigate(price, index)
+                        }
+                    )
                 }
             }
         }
     }
-
 }

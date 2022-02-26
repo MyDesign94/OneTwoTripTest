@@ -31,10 +31,6 @@ fun FlightsListScreen(
             Log.e("!!!", (viewState as FlightsListScreenViewState.Display).data.toString())
             DisplayFlightsScreen(
                 data = (viewState as FlightsListScreenViewState.Display).data,
-                currentDestination = currentDestination,
-                onBackPressed = {
-                    navController.popBackStack()
-                },
                 onNavigate = { price, index ->
                     navController.navigate(
                         Screens.DetailedInfoScreen.route +

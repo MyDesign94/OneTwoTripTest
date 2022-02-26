@@ -2,18 +2,19 @@ package com.example.onetwotriptest.presentation.screens.flights_list_screen.comp
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.selection.selectable
-import androidx.compose.material.AlertDialog
-import androidx.compose.material.Button
-import androidx.compose.material.RadioButton
+import androidx.compose.material.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.style.TextAlign
 import com.example.onetwotriptest.R
 import com.example.onetwotriptest.domain.model.FlightEntitie
 import com.example.onetwotriptest.domain.model.PriceEntitie
+import com.example.onetwotriptest.presentation.screens.widgets.TextEx
+import com.example.onetwotriptest.presentation.ui.theme.TripTheme
 
 @Composable
 fun FlightAlertDialog(
@@ -27,7 +28,13 @@ fun FlightAlertDialog(
     AlertDialog(
         onDismissRequest = { dismissRequest() },
         title = {
-                TextEx(text = "Test")
+                TextEx(
+                    textAlign = TextAlign.Center,
+                    modifier = modifier.fillMaxWidth(),
+                    style = TripTheme.typography.toolbar,
+                    text = stringResource(id = R.string.select_flight_class),
+                    textColor = TripTheme.colors.primaryText
+                )
         },
         text = {
             Column(
@@ -48,6 +55,10 @@ fun FlightAlertDialog(
                     ) {
                         RadioButton(
                             selected = (price.type == selectedOption.type),
+                            colors = RadioButtonDefaults.colors(
+                                selectedColor = TripTheme.colors.tintColor,
+                                unselectedColor = TripTheme.colors.controlColor
+                            ),
                             onClick = {
                                 onOptionSelected(price)
                             }
@@ -60,11 +71,15 @@ fun FlightAlertDialog(
             }
         },
         confirmButton = {
-            Button(
-                onClick = {
+            Column(
+                modifier = modifier.fillMaxWidth(),
+                horizontalAlignment = Alignment.CenterHorizontally
+            ) {
+                ButtonWidget(
+                    buttonText = stringResource(id = R.string.confirm)
+                ) {
                     onConfirm(selectedOption)
-                }) {
-                TextEx(text = stringResource(id = R.string.confirm))
+                }
             }
         }
     )

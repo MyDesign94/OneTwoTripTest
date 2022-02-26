@@ -23,20 +23,21 @@ class MainActivity : ComponentActivity() {
                 bigPaddingSize = TripSize.Medium,
                 standardPaddingSize = TripSize.Medium,
                 smallPaddingSize = TripSize.Medium,
-                elevationSize = TripSize.Small
+                elevationSize = TripSize.Small,
+                darkTheme = false
             ) {
                 val systemUiController = rememberSystemUiController()
                 SideEffect {
                     systemUiController.setSystemBarsColor(
                         color = when (this.resources.configuration.uiMode.and(Configuration.UI_MODE_NIGHT_MASK)) {
                             Configuration.UI_MODE_NIGHT_YES -> {
-                                blueLightPalette.tintColor
+                                blueLightPalette.barColor
                             }
                             Configuration.UI_MODE_NIGHT_NO -> {
-                                blueDarkPalette.tintColor
+                                blueDarkPalette.barColor
                             }
                             else -> {
-                                blueDarkPalette.tintColor
+                                blueDarkPalette.barColor
                             }
                         }
                     )

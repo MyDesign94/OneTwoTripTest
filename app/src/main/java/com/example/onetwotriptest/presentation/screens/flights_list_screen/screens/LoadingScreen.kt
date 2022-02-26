@@ -11,6 +11,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import com.example.onetwotriptest.R
+import com.example.onetwotriptest.presentation.screens.widgets.TextEx
 import com.example.onetwotriptest.presentation.ui.theme.OneTwoTripTestTheme
 import com.example.onetwotriptest.presentation.ui.theme.TripTheme
 
@@ -19,7 +20,7 @@ fun LoadingScreen(
     modifier: Modifier = Modifier,
     arrangement: Arrangement.Vertical = Arrangement.Top,
     alignment: Alignment.Horizontal = Alignment.CenterHorizontally,
-    progressIndicatorColor: Color = TripTheme.colors.primaryText,
+    progressIndicatorColor: Color = TripTheme.colors.controlColor,
     paddingValues: Dp = TripTheme.shapes.bigPadding
 ) {
     Column(
@@ -42,7 +43,10 @@ fun LoadingScreen(
                 strokeWidth = dimensionResource(id = R.dimen.indicatorWeight)
             )
             Spacer(modifier = modifier.width(paddingValues))
-            TextEx(text = stringResource(id = R.string.loading_text))
+            TextEx(
+                text = stringResource(id = R.string.loading_text),
+                textColor = progressIndicatorColor
+            )
         }
     }
 }

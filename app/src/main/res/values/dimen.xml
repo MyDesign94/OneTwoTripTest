@@ -2,6 +2,7 @@
 <resources>
     <dimen name="indicatorSize">30.dp</dimen>
     <dimen name="indicatorWeight">3.dp</dimen>
+    <dimen name="stars_size">13.dp</dimen>
     <dimen name="big_spacer">50.dp</dimen>
     <dimen name="barSize">56.dp</dimen>
 </resources>
