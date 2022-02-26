@@ -1,6 +1,5 @@
 package com.example.onetwotriptest.presentation.screens.flights_list_screen.state
 
-import com.example.onetwotriptest.data.remote.dto.Flights
 import com.example.onetwotriptest.domain.model.FlightEntitie
 
 sealed class FlightsListScreenViewState {

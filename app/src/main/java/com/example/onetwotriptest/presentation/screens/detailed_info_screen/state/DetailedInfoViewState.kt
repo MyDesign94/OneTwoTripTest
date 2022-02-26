@@ -7,7 +7,8 @@ sealed class DetailedInfoViewState {
         val selectedClass: String,
         val cost: String,
         val flightEntitie: FlightEntitie,
-        val transplants: Int
-    ): DetailedInfoViewState()
+        val transplants: Int,
+    ) : DetailedInfoViewState()
+
     object Loading : DetailedInfoViewState()
 }

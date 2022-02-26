@@ -1,6 +1,8 @@
 package com.example.onetwotriptest.domain.interactors
 
 import android.content.Context
+import android.util.Log
+import com.example.onetwotriptest.R
 import com.example.onetwotriptest.core.toFlightEntitie
 import com.example.onetwotriptest.domain.model.FlightEntitie
 import com.example.onetwotriptest.domain.repository.GetAllFlightsRepository
@@ -21,6 +23,7 @@ class GetAllFlightsInteractor @Inject constructor(
         val response = repository.getAllFlights().map { it.toFlightEntitie(context) }
         emit(Resource.Success<List<FlightEntitie>>(response))
     }.catch {
-        emit(Resource.Error<List<FlightEntitie>>(it.localizedMessage!!))
+        Log.e("!!!", it.localizedMessage!!)
+        emit(Resource.Error<List<FlightEntitie>>(context.getString(R.string.daily_error_loading)))
     }
 }

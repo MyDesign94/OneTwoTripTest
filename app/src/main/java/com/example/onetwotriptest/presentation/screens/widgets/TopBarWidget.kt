@@ -4,11 +4,9 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.Icon
 import androidx.compose.material.IconButton
-import androidx.compose.material.Text
 import androidx.compose.material.TopAppBar
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
-import androidx.compose.material.icons.filled.Backspace
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -31,7 +29,7 @@ fun TopBarWidget(
     textStyle: TextStyle = TripTheme.typography.toolbar,
     backgroundColor: Color = TripTheme.colors.barColor,
     elevation: Dp = TripTheme.shapes.elevation,
-    onClick: () -> Unit
+    onClick: () -> Unit,
 ) {
     TopAppBar(
         modifier = Modifier.height(dimensionResource(id = R.dimen.barSize)),
@@ -39,11 +37,15 @@ fun TopBarWidget(
         elevation = elevation,
         title = {
             TextEx(
-                modifier = Modifier.padding(start = bigPadding, top = standardPadding, bottom = standardPadding),
+                modifier = Modifier.padding(start = bigPadding,
+                    top = standardPadding,
+                    bottom = standardPadding),
                 text = when (currentDestination?.route) {
                     Screens.FlightsScreen.route -> stringResource(id = Screens.FlightsScreen.resourceId).uppercase()
                     Screens.FirstScreen.route -> stringResource(id = Screens.FirstScreen.resourceId).uppercase()
-                    else -> { stringResource(id = Screens.DetailedInfoScreen.resourceId).uppercase() }
+                    else -> {
+                        stringResource(id = Screens.DetailedInfoScreen.resourceId).uppercase()
+                    }
                 },
                 style = textStyle,
                 textColor = textColor

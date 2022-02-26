@@ -1,7 +1,5 @@
 package com.example.onetwotriptest.domain.model
 
-import com.example.onetwotriptest.data.remote.dto.Trip
-
 data class FlightEntitie(
     val currency: String,
     val chipPrice: String,
@@ -12,12 +10,12 @@ data class FlightEntitie(
     val fromToAirports: List<String>,
     val fromToLocation: List<String>,
     val prices: List<PriceEntitie>,
-    val trips: List<TripEnitie>
+    val trips: List<TripEnitie>,
 )
 
 data class PriceEntitie(
     val amount: String,
-    val type: String
+    val type: String,
 )
 
 data class TripEnitie(
@@ -26,5 +24,5 @@ data class TripEnitie(
     val fromAirport: String,
     val to: String,
     val toLocation: String,
-    val toAirport: String
+    val toAirport: String,
 )

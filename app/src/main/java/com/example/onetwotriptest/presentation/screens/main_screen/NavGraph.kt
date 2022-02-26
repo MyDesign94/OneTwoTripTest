@@ -44,8 +44,7 @@ fun NavGraph(
                 val flightsListScreenViewModel = hiltViewModel<FlightsListScreenViewModel>()
                 FlightsListScreen(
                     viewModel = flightsListScreenViewModel,
-                    navController = navController,
-                    currentDestination = currentDestination
+                    navController = navController
                 )
             }
             composable(

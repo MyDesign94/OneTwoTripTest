@@ -16,8 +16,8 @@ import javax.inject.Inject
 
 @HiltViewModel
 class DetailedInfoViewModel @Inject constructor(
-    savedStateHandle: SavedStateHandle
-): ViewModel() {
+    savedStateHandle: SavedStateHandle,
+) : ViewModel() {
 
     private val _viewState = MutableStateFlow<DetailedInfoViewState>(DetailedInfoViewState.Loading)
     val viewState = _viewState.asStateFlow()
@@ -32,7 +32,7 @@ class DetailedInfoViewModel @Inject constructor(
             flight = Gson().fromJson(it, FlightEntitie::class.java)
         }
         viewModelScope.launch(Dispatchers.Default) {
-            _viewState.value =  DetailedInfoViewState.DetailedInfo(
+            _viewState.value = DetailedInfoViewState.DetailedInfo(
                 selectedClass = chosePrice?.type!!,
                 cost = chosePrice?.amount!!,
                 flightEntitie = flight!!,

@@ -9,7 +9,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
 import com.example.onetwotriptest.core.Screens
-import com.example.onetwotriptest.presentation.screens.flights_list_screen.components.ButtonWidget
+import com.example.onetwotriptest.presentation.screens.widgets.ButtonWidget
 
 @Composable
 fun FirstScreen(

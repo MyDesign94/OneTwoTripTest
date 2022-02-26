@@ -16,18 +16,18 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+import com.example.onetwotriptest.R
 import com.example.onetwotriptest.domain.model.TripEnitie
+import com.example.onetwotriptest.presentation.screens.widgets.TextEx
 import com.example.onetwotriptest.presentation.ui.theme.OneTwoTripTestTheme
 import com.example.onetwotriptest.presentation.ui.theme.TripTheme
-import com.example.onetwotriptest.R
-import com.example.onetwotriptest.presentation.screens.widgets.TextEx
 
 @Composable
 fun DetailedInfoCard(
     modifier: Modifier = Modifier,
     trip: TripEnitie,
     flightClass: String,
-    padding: Dp = TripTheme.shapes.smallPadding
+    padding: Dp = TripTheme.shapes.smallPadding,
 ) {
     Card(
         modifier = modifier
@@ -44,7 +44,7 @@ fun DetailedInfoCard(
                     .padding(padding)
                     .padding(bottom = padding),
                 verticalAlignment = Alignment.CenterVertically
-                ) {
+            ) {
                 BorderCard(
                     modifier = modifier,
                     text = stringResource(id = R.string.airline_flight),
@@ -79,7 +79,7 @@ fun CardItemRow(
     airport: String,
     iata: String,
     city: String,
-    padding: Dp = TripTheme.shapes.smallPadding
+    padding: Dp = TripTheme.shapes.smallPadding,
 ) {
     Row(
         modifier = modifier
@@ -113,7 +113,7 @@ private fun BorderCard(
     color: Color = TripTheme.colors.controlColor,
     padding: Dp = TripTheme.shapes.smallPadding,
     style: TextStyle = TripTheme.typography.caption,
-    borderWidth: Dp = 1.dp
+    borderWidth: Dp = 1.dp,
 ) {
     Card(border = BorderStroke(width = borderWidth, color = color)
     ) {

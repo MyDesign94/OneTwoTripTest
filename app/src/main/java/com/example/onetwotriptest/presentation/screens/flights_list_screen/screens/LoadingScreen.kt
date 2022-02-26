@@ -21,7 +21,7 @@ fun LoadingScreen(
     arrangement: Arrangement.Vertical = Arrangement.Top,
     alignment: Alignment.Horizontal = Alignment.CenterHorizontally,
     progressIndicatorColor: Color = TripTheme.colors.controlColor,
-    paddingValues: Dp = TripTheme.shapes.bigPadding
+    paddingValues: Dp = TripTheme.shapes.bigPadding,
 ) {
     Column(
         modifier = modifier.fillMaxSize(),
@@ -32,8 +32,7 @@ fun LoadingScreen(
         Row(
             modifier = modifier
                 .fillMaxWidth()
-                .padding(top = paddingValues)
-            ,
+                .padding(top = paddingValues),
             horizontalArrangement = Arrangement.Center,
             verticalAlignment = Alignment.CenterVertically
         ) {

@@ -13,7 +13,7 @@ import androidx.compose.ui.unit.Dp
 import com.example.onetwotriptest.R
 import com.example.onetwotriptest.domain.model.FlightEntitie
 import com.example.onetwotriptest.presentation.screens.detailed_info_screen.components.DetailedInfoCard
-import com.example.onetwotriptest.presentation.screens.flights_list_screen.components.ButtonWidget
+import com.example.onetwotriptest.presentation.screens.widgets.ButtonWidget
 import com.example.onetwotriptest.presentation.screens.widgets.TextEx
 import com.example.onetwotriptest.presentation.ui.theme.TripTheme
 
@@ -25,7 +25,7 @@ fun DetailedInfoScreen(
     transplants: Int,
     cost: String,
     smallPadding: Dp = TripTheme.shapes.smallPadding,
-    standardPadding: Dp = TripTheme.shapes.standardPadding
+    standardPadding: Dp = TripTheme.shapes.standardPadding,
 ) {
     Column(
         modifier = modifier
@@ -69,7 +69,9 @@ fun DetailedInfoScreen(
                 .background(TripTheme.colors.secondaryBackground),
         ) {
             Column(
-                modifier = modifier.fillMaxWidth().padding(standardPadding),
+                modifier = modifier
+                    .fillMaxWidth()
+                    .padding(standardPadding),
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
                 TextEx(

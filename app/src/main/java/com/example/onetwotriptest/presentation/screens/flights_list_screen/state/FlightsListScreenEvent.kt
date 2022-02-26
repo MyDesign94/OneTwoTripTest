@@ -2,6 +2,5 @@ package com.example.onetwotriptest.presentation.screens.flights_list_screen.stat
 
 sealed class FlightsListScreenEvent {
     object ShowListFlights : FlightsListScreenEvent()
-    object ShowDialog: FlightsListScreenEvent()
-    object HideDialog: FlightsListScreenEvent()
+    object Refresh: FlightsListScreenEvent()
 }
