@@ -4,7 +4,7 @@ A simple android application for displaying a list of flights.
 
 ## Screen shots
 
-![Screens](https://github.com/MyDesign94/RickAndMortApp/blob/master/screenshots.png)
+![Screens](https://github.com/MyDesign94/OneTwoTripTest/blob/master/screenshots.png)
 
 ## Features
 
