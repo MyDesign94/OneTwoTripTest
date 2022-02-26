@@ -23,12 +23,11 @@ fun DisplayFlightsScreen(
     onNavigate: (PriceEntitie, Int) -> Unit
 ) {
     Box(
-        modifier = modifier.fillMaxSize()
-            .padding(start = padding, end = padding, bottom = padding),
+        modifier = modifier.fillMaxSize(),
         contentAlignment = Alignment.Center
     ) {
         LazyColumn(
-            modifier = modifier.fillMaxWidth()
+            modifier = modifier.fillMaxWidth().padding(start = padding, end = padding)
         ) {
             data.forEachIndexed { index, flightEntitie ->
                 item {

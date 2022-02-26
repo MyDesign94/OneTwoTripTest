@@ -6,6 +6,7 @@ import com.example.onetwotriptest.data.remote.FlightsAPI
 import com.example.onetwotriptest.data.repository.GetAllFlightsRepositoryImpl
 import com.example.onetwotriptest.domain.interactors.GetAllFlightsInteractor
 import com.example.onetwotriptest.domain.reduse.FlightsReduce
+import com.example.onetwotriptest.domain.reduse.FlightsReduceImpl
 import com.example.onetwotriptest.domain.repository.GetAllFlightsRepository
 import com.example.onetwotriptest.domain.use_case.GetAllFlightsUseCase
 import dagger.Module
@@ -66,6 +67,6 @@ object AppModule {
     @Provides
     @Singleton
     fun provideFlightsReduce(useCase: GetAllFlightsUseCase, @ApplicationContext context: Context): FlightsReduce {
-        return FlightsReduce(useCase = useCase)
+        return FlightsReduceImpl(useCase = useCase)
     }
 }

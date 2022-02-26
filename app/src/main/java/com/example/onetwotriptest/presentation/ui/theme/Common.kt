@@ -15,7 +15,8 @@ data class TripColors(
     val tintColor: Color,
     val controlColor: Color,
     val errorColor: Color,
-    val barColor: Color
+    val barColor: Color,
+    val greenColor: Color
 )
 
 data class TripTypography(

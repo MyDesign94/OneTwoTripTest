@@ -28,7 +28,7 @@ import com.example.onetwotriptest.presentation.ui.theme.TripTheme
 fun ButtonWidget(
     modifier: Modifier = Modifier,
     buttonColors: ButtonColors = ButtonDefaults.buttonColors(TripTheme.colors.tintColor),
-    standardSize: Modifier = Modifier.fillMaxWidth(0.7f),
+    standardSize: Modifier = Modifier,
     buttonText: String = stringResource(R.string.search),
     buttonTextStyle: TextStyle = TripTheme.typography.toolbar,
     textAlign: TextAlign = TextAlign.Center,

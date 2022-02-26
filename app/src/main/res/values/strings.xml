@@ -6,17 +6,24 @@
     <string name="detailed_info">Detailed info</string>
     <string name="loading_text">Loading flight information…</string>
     <string name="confirm">Confirm</string>
+    <string name="from">from&#160;</string>
     <string name="RUB">&#160;&#8381;</string>
+    <string name="arrow_right">&#160;&#8594;&#160;</string>
     <string name="select_flight_class">Select flight class</string>
+    <string name="airline_company">AEROFLOT</string>
+    <string name="hand_luggage">Hand luggage: 1 &#215; 10 kg</string>
+    <string name="luggage">Luggage</string>
+    <string name="included">Included</string>
+    <string name="not_included">Not included</string>
+    <string name="with_luggage">With luggage: 1 &#215; 23 kg</string>
     <string name="airline_flight">AEROFLOT SU-1835</string>
     <string name="transplant">Transplant</string>
+    <string name="select">SELECT</string>
     <string name="airbus">Airbus A321 SL,&#160;</string>
     <string-array name="number_of_transplants">
-        <item>Direct flight</item>
-        <item>One transplant</item>
-        <item>Two transplant</item>
-        <item>Thee transplant</item>
-        <item>Four transplant</item>
+        <item>DIRECT FLIGHT</item>
+        <item>1 TRANSPLANT</item>
+        <item>%s TRANSPLANTS</item>
     </string-array>
     <string-array name="buy">
         <item>Buy ticket for %s &#8381;</item>

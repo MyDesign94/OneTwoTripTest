@@ -14,25 +14,6 @@ import java.util.*
 
 fun Flights.toFlightEntitie(context: Context): FlightEntitie {
     val transplantArray = context.resources.getStringArray(R.array.number_of_transplants)
-    return FlightEntitie(
-        currency = currency,
-        chipPrice= prices.minByOrNull { it.amount }!!.amount.toString(),
-        transplant = transplantArray[trips.size - 1],
-        fromTo = "${trips.first().from} - ${trips.last().to}",
-        prices = prices.map { it.toPricesEntitie() },
-        trips = trips.map { it.toTripEntitie(context = context) }
-    )
-}
-
-fun Price.toPricesEntitie(): PriceEntitie {
-    return PriceEntitie(
-        amount = amount.toString(),
-        type = type
-            .replaceFirstChar { if (it.isLowerCase()) it.titlecase(Locale.getDefault()) else it.toString() }
-    )
-}
-
-fun Trip.toTripEntitie(context: Context): TripEnitie {
     val file = context.resources.openRawResource(R.raw.iata)
     val stream = InputStreamReader(file, "utf-8")
     val reader = BufferedReader(stream)
@@ -44,6 +25,67 @@ fun Trip.toTripEntitie(context: Context): TripEnitie {
         } != null) {
         listOfIata.add(line!!)
     }
+    return FlightEntitie(
+        currency = currency,
+        chipPrice= prices.toChipPrice(context),
+        chipPriceWithLuggage = prices.toChipPrice(context, withLuggage = true),
+        transplant = trips.size <= 1,
+        transplantString = trips.size.toTransplantString(transplantArray),
+        fromTo = listOf(
+            trips.first().from,
+            trips.last().to
+        ),
+        fromToAirports = listOf(
+            listOfIata.parseLocation(trips.first().from).first(),
+            listOfIata.parseLocation(trips.last().to).first()),
+        fromToLocation = listOf(
+            listOfIata.parseLocation(trips.first().from).last(),
+            listOfIata.parseLocation(trips.last().to).last()),
+        prices = prices.map { it.toPricesEntitie() },
+        trips = trips.map { it.toTripEntitie(listOfIata = listOfIata) }
+    )
+}
+
+private fun Int.toTransplantString(transplantArray: Array<String>): String {
+    return when(this) {
+        1 -> {
+            transplantArray[0]
+        }
+        2 -> {
+            transplantArray[1]
+        }
+        else -> {
+            String.format(transplantArray[2], this)
+        }
+    }
+}
+
+
+private fun List<Price>.toChipPrice(context: Context, withLuggage: Boolean = false): String {
+    return if (this.size > 1) {
+        if (withLuggage) {
+            context.getString(R.string.from) + (this.minByOrNull { it.amount }!!.amount + 1500).toString()
+        } else {
+            context.getString(R.string.from) + this.minByOrNull { it.amount }!!.amount.toString()
+        }
+    } else {
+        if (withLuggage) {
+            (this.minByOrNull { it.amount }!!.amount + 1500).toString()
+        } else {
+            this.minByOrNull { it.amount }!!.amount.toString()
+        }
+    }
+}
+
+private fun Price.toPricesEntitie(): PriceEntitie {
+    return PriceEntitie(
+        amount = amount.toString(),
+        type = type
+            .replaceFirstChar { if (it.isLowerCase()) it.titlecase(Locale.getDefault()) else it.toString() }
+    )
+}
+
+private fun Trip.toTripEntitie(listOfIata: MutableList<String>): TripEnitie {
     return TripEnitie(
         from = from,
         fromLocation = listOfIata.parseLocation(from).last(),
@@ -54,6 +96,6 @@ fun Trip.toTripEntitie(context: Context): TripEnitie {
     )
 }
 
-fun MutableList<String>.parseLocation(iata: String): List<String> {
+private fun MutableList<String>.parseLocation(iata: String): List<String> {
     return this.first { it.contains(iata) }.split(" — ").last().split(",")
 }

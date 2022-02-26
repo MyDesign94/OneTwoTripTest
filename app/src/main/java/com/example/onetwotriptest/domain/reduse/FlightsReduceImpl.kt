@@ -9,11 +9,11 @@ import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.flow
 import javax.inject.Inject
 
-class FlightsReduce @Inject constructor(
+class FlightsReduceImpl @Inject constructor(
     private val useCase: GetAllFlightsUseCase,
-) {
+): FlightsReduce {
 
-    fun reduce(event: FlightsListScreenEvent):
+    override fun reduce(event: FlightsListScreenEvent):
             Flow<FlightsListScreenViewState> = flow {
         when (event) {
             FlightsListScreenEvent.ShowListFlights -> {

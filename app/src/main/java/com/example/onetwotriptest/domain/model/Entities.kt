@@ -5,8 +5,12 @@ import com.example.onetwotriptest.data.remote.dto.Trip
 data class FlightEntitie(
     val currency: String,
     val chipPrice: String,
-    val transplant: String,
-    val fromTo: String,
+    val chipPriceWithLuggage: String,
+    val transplant: Boolean,
+    val transplantString: String,
+    val fromTo: List<String>,
+    val fromToAirports: List<String>,
+    val fromToLocation: List<String>,
     val prices: List<PriceEntitie>,
     val trips: List<TripEnitie>
 )
