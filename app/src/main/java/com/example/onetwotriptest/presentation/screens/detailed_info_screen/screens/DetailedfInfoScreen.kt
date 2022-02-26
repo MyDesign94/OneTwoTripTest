@@ -14,7 +14,7 @@ import com.example.onetwotriptest.R
 import com.example.onetwotriptest.domain.model.FlightEntitie
 import com.example.onetwotriptest.presentation.screens.detailed_info_screen.components.DetailedInfoCard
 import com.example.onetwotriptest.presentation.screens.widgets.ButtonWidget
-import com.example.onetwotriptest.presentation.screens.widgets.TextEx
+import com.example.onetwotriptest.presentation.screens.widgets.TextWidget
 import com.example.onetwotriptest.presentation.ui.theme.TripTheme
 
 @Composable
@@ -45,7 +45,7 @@ fun DetailedInfoScreen(
                 }
                 if (transplants != index) {
                     item {
-                        TextEx(
+                        TextWidget(
                             modifier = modifier
                                 .padding(smallPadding)
                                 .padding(start = smallPadding),
@@ -74,7 +74,7 @@ fun DetailedInfoScreen(
                     .padding(standardPadding),
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
-                TextEx(
+                TextWidget(
                     modifier = modifier.padding(bottom = smallPadding),
                     text = String.format(stringArrayResource(id = R.array.buy)[transplants], cost),
                     style = TripTheme.typography.toolbar

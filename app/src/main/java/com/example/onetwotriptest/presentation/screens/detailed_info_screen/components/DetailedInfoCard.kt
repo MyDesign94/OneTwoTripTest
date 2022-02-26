@@ -13,13 +13,11 @@ import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.example.onetwotriptest.R
 import com.example.onetwotriptest.domain.model.TripEnitie
-import com.example.onetwotriptest.presentation.screens.widgets.TextEx
-import com.example.onetwotriptest.presentation.ui.theme.OneTwoTripTestTheme
+import com.example.onetwotriptest.presentation.screens.widgets.TextWidget
 import com.example.onetwotriptest.presentation.ui.theme.TripTheme
 
 @Composable
@@ -64,7 +62,7 @@ fun DetailedInfoCard(
             CardItemRow(airport = trip.fromAirport, iata = trip.from, city = trip.fromLocation)
             CardItemRow(airport = trip.toAirport, iata = trip.to, city = trip.toLocation)
             Divider()
-            TextEx(
+            TextWidget(
                 modifier = modifier.padding(padding),
                 text = stringResource(id = R.string.airbus) + flightClass,
                 style = TripTheme.typography.caption
@@ -92,10 +90,10 @@ fun CardItemRow(
         Column(
             horizontalAlignment = Alignment.Start
         ) {
-            TextEx(
+            TextWidget(
                 text = airport
             )
-            TextEx(
+            TextWidget(
                 text = city,
                 textColor = TripTheme.colors.controlColor,
                 style = TripTheme.typography.caption
@@ -104,7 +102,6 @@ fun CardItemRow(
         BorderCard(modifier = modifier, text = iata)
     }
 }
-
 
 @Composable
 private fun BorderCard(
@@ -117,28 +114,11 @@ private fun BorderCard(
 ) {
     Card(border = BorderStroke(width = borderWidth, color = color)
     ) {
-        TextEx(
+        TextWidget(
             modifier = modifier.padding(start = padding, end = padding),
             text = text,
             textColor = color,
             style = style
         )
-    }
-}
-
-@Preview(showBackground = true)
-@Composable
-fun PreviewCard() {
-    val simpleData = TripEnitie(
-        from = "MSQ",
-        fromAirport = "Mинск",
-        fromLocation = "Минск",
-        to = "SVO",
-        toAirport = "Шереметьево, D",
-        toLocation = "Москва"
-    )
-    OneTwoTripTestTheme(
-    ) {
-        DetailedInfoCard(trip = simpleData, flightClass = "Bussiness")
     }
 }

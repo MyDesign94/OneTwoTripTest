@@ -14,7 +14,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import com.example.onetwotriptest.R
 import com.example.onetwotriptest.presentation.screens.widgets.ButtonWidget
-import com.example.onetwotriptest.presentation.screens.widgets.TextEx
+import com.example.onetwotriptest.presentation.screens.widgets.TextWidget
 import com.example.onetwotriptest.presentation.ui.theme.TripTheme
 
 @Composable
@@ -45,7 +45,7 @@ fun ErrorScreen(
                 contentDescription = null
             )
             Spacer(modifier = modifier.height(dimensionResource(id = R.dimen.standard_spacer)))
-            TextEx(
+            TextWidget(
                 text = message,
                 textAlign = textAlign
             )

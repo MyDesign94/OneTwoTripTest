@@ -36,7 +36,7 @@ fun ButtonWidget(
         modifier = standardSize,
         colors = buttonColors
     ) {
-        TextEx(
+        TextWidget(
             text = buttonText,
             style = buttonTextStyle,
             modifier = modifier.fillMaxWidth(),

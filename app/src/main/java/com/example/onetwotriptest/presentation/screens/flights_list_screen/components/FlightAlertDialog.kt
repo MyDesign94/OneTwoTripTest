@@ -16,7 +16,7 @@ import com.example.onetwotriptest.R
 import com.example.onetwotriptest.domain.model.FlightEntitie
 import com.example.onetwotriptest.domain.model.PriceEntitie
 import com.example.onetwotriptest.presentation.screens.widgets.ButtonWidget
-import com.example.onetwotriptest.presentation.screens.widgets.TextEx
+import com.example.onetwotriptest.presentation.screens.widgets.TextWidget
 import com.example.onetwotriptest.presentation.ui.theme.TripTheme
 
 @Composable
@@ -31,7 +31,7 @@ fun FlightAlertDialog(
     AlertDialog(
         onDismissRequest = { dismissRequest() },
         title = {
-            TextEx(
+            TextWidget(
                 textAlign = TextAlign.Center,
                 modifier = modifier.fillMaxWidth(),
                 style = TripTheme.typography.toolbar,
@@ -66,9 +66,9 @@ fun FlightAlertDialog(
                                 onOptionSelected(price)
                             }
                         )
-                        TextEx(text = price.type)
+                        TextWidget(text = price.type)
                         Spacer(modifier = modifier.weight(1f))
-                        TextEx(text = price.amount + stringResource(id = R.string.RUB))
+                        TextWidget(text = price.amount + stringResource(id = R.string.RUB))
                     }
                 }
             }

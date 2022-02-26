@@ -19,11 +19,11 @@ class GetAllFlightsInteractor @Inject constructor(
 ) : GetAllFlightsUseCase {
 
     override fun getFlights(): Flow<Resource<List<FlightEntitie>>> = flow {
-        emit(Resource.Loading<List<FlightEntitie>>())
+        emit(Resource.Loading())
         val response = repository.getAllFlights().map { it.toFlightEntitie(context) }
-        emit(Resource.Success<List<FlightEntitie>>(response))
+        emit(Resource.Success(response))
     }.catch {
         Log.e("!!!", it.localizedMessage!!)
-        emit(Resource.Error<List<FlightEntitie>>(context.getString(R.string.daily_error_loading)))
+        emit(Resource.Error(context.getString(R.string.daily_error_loading)))
     }
 }

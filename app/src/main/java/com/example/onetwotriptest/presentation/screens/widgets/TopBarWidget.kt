@@ -17,7 +17,7 @@ import androidx.compose.ui.unit.Dp
 import androidx.navigation.NavDestination
 import com.example.onetwotriptest.R
 import com.example.onetwotriptest.core.Screens
-import com.example.onetwotriptest.presentation.screens.widgets.TextEx
+import com.example.onetwotriptest.presentation.screens.widgets.TextWidget
 import com.example.onetwotriptest.presentation.ui.theme.TripTheme
 
 @Composable
@@ -36,7 +36,7 @@ fun TopBarWidget(
         backgroundColor = backgroundColor,
         elevation = elevation,
         title = {
-            TextEx(
+            TextWidget(
                 modifier = Modifier.padding(start = bigPadding,
                     top = standardPadding,
                     bottom = standardPadding),

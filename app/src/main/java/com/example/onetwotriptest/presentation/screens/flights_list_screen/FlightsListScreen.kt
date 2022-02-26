@@ -7,9 +7,9 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.navigation.NavHostController
 import com.example.onetwotriptest.core.Screens
-import com.example.onetwotriptest.presentation.screens.flights_list_screen.components.LoadingScreen
 import com.example.onetwotriptest.presentation.screens.flights_list_screen.screens.DisplayFlightsScreen
 import com.example.onetwotriptest.presentation.screens.flights_list_screen.screens.ErrorScreen
+import com.example.onetwotriptest.presentation.screens.flights_list_screen.screens.FlightLoadingScreen
 import com.example.onetwotriptest.presentation.screens.flights_list_screen.state.FlightsListScreenEvent
 import com.example.onetwotriptest.presentation.screens.flights_list_screen.state.FlightsListScreenViewState
 import com.google.gson.Gson
@@ -23,7 +23,7 @@ fun FlightsListScreen(
 
     when (val state = viewState) {
         is FlightsListScreenViewState.Loading -> {
-            LoadingScreen()
+            FlightLoadingScreen()
         }
         is FlightsListScreenViewState.Display -> {
             Log.e("!!!", state.data.toString())

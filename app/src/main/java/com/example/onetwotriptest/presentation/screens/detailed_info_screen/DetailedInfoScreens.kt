@@ -5,6 +5,7 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import com.example.onetwotriptest.presentation.screens.detailed_info_screen.screens.DetailedInfoScreen
 import com.example.onetwotriptest.presentation.screens.detailed_info_screen.state.DetailedInfoViewState
+import com.example.onetwotriptest.presentation.screens.flights_list_screen.components.DetailedLoadingScreen
 
 @Composable
 fun DetailedInfoScreens(
@@ -14,7 +15,7 @@ fun DetailedInfoScreens(
 
     when (val state = viewState) {
         is DetailedInfoViewState.Loading -> {
-
+            DetailedLoadingScreen()
         }
         is DetailedInfoViewState.DetailedInfo -> {
             DetailedInfoScreen(

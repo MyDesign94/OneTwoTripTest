@@ -66,7 +66,7 @@ object AppModule {
 
     @Provides
     @Singleton
-    fun provideFlightsReduce(useCase: GetAllFlightsUseCase, @ApplicationContext context: Context): FlightsReduce {
+    fun provideFlightsReduce(useCase: GetAllFlightsUseCase): FlightsReduce {
         return FlightsReduceImpl(useCase = useCase)
     }
 }

@@ -12,7 +12,7 @@ import com.example.onetwotriptest.presentation.ui.theme.RobotoCondensed
 import com.example.onetwotriptest.presentation.ui.theme.TripTheme
 
 @Composable
-fun TextEx(
+fun TextWidget(
     modifier: Modifier = Modifier,
     text: String = "",
     style: TextStyle = TripTheme.typography.body,

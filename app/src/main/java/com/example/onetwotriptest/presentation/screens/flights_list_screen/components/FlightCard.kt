@@ -22,7 +22,7 @@ import androidx.compose.ui.unit.Dp
 import com.example.onetwotriptest.R
 import com.example.onetwotriptest.domain.model.FlightEntitie
 import com.example.onetwotriptest.domain.model.PriceEntitie
-import com.example.onetwotriptest.presentation.screens.widgets.TextEx
+import com.example.onetwotriptest.presentation.screens.widgets.TextWidget
 import com.example.onetwotriptest.presentation.ui.theme.TripTheme
 
 @OptIn(ExperimentalMaterialApi::class)
@@ -68,7 +68,7 @@ fun FlightCard(
                     verticalAlignment = Alignment.CenterVertically
                 ) {
                     Column() {
-                        TextEx(
+                        TextWidget(
                             text = stringResource(id = R.string.airline_company),
                             style = TripTheme.typography.toolbar,
                             textColor = TripTheme.colors.primaryBackground
@@ -81,7 +81,7 @@ fun FlightCard(
                             contentDescription = null
                         )
                     }
-                    TextEx(
+                    TextWidget(
                         text = value.chipPrice + stringResource(id = R.string.RUB),
                         textColor = TripTheme.colors.primaryBackground,
                         style = textStyle
@@ -111,13 +111,13 @@ fun FlightCard(
                                 iata = value.fromTo.first(),
                                 airport = value.fromToAirports.first()
                             )
-                            TextEx( text = stringResource(id = R.string.arrow_right))
+                            TextWidget( text = stringResource(id = R.string.arrow_right))
                             ColumnFromTo(
                                 iata = value.fromTo.last(),
                                 airport = value.fromToAirports.last()
                             )
                         }
-                        TextEx(
+                        TextWidget(
                             textAlign = TextAlign.End,
                             modifier = modifier.weight(1f),
                             text = value.transplantString,
@@ -163,12 +163,12 @@ fun ColumnFromTo(
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Top
     ) {
-        TextEx(
+        TextWidget(
             text = airport,
             textAlign = TextAlign.Center,
             textWeight = FontWeight.Bold
         )
-        TextEx(
+        TextWidget(
             text = iata,
             textColor = TripTheme.colors.controlColor
         )
@@ -190,7 +190,7 @@ fun CardRow(
         horizontalArrangement = Arrangement.SpaceBetween,
         verticalAlignment = Alignment.Top
     ) {
-        TextEx(text = startText)
-        TextEx(text = endText, textColor = endTextColor)
+        TextWidget(text = startText)
+        TextWidget(text = endText, textColor = endTextColor)
     }
 }
