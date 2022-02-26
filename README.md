@@ -2,7 +2,7 @@
 
 A simple android application for displaying a list of flights.
 
-## Screen shots
+## Screenshots
 
 ![Screens](https://github.com/MyDesign94/OneTwoTripTest/blob/master/screenshots.png)
 
