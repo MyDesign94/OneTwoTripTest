@@ -69,9 +69,10 @@ fun FlightCard(
                 ) {
                     Column() {
                         TextWidget(
+                            textColor = TripTheme.colors.primaryBackground,
                             text = stringResource(id = R.string.airline_company),
-                            style = TripTheme.typography.toolbar,
-                            textColor = TripTheme.colors.primaryBackground
+                            style = TripTheme.typography.toolbar
+
                         )
                         Image(
                             modifier = modifier

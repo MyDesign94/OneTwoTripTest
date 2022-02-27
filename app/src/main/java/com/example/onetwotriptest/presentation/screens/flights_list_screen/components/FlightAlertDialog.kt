@@ -30,6 +30,7 @@ fun FlightAlertDialog(
 
     AlertDialog(
         onDismissRequest = { dismissRequest() },
+        backgroundColor = TripTheme.colors.primaryBackground,
         title = {
             TextWidget(
                 textAlign = TextAlign.Center,

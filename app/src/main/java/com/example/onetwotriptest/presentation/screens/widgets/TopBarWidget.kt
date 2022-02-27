@@ -25,7 +25,7 @@ fun TopBarWidget(
     currentDestination: NavDestination?,
     standardPadding: Dp = TripTheme.shapes.standardPadding,
     bigPadding: Dp = TripTheme.shapes.bigPadding,
-    textColor: Color = TripTheme.colors.primaryBackground,
+    textColor: Color = TripTheme.colors.secondaryText,
     textStyle: TextStyle = TripTheme.typography.toolbar,
     backgroundColor: Color = TripTheme.colors.barColor,
     elevation: Dp = TripTheme.shapes.elevation,

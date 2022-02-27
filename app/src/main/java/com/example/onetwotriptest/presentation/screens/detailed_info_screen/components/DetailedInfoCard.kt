@@ -25,12 +25,14 @@ fun DetailedInfoCard(
     modifier: Modifier = Modifier,
     trip: TripEnitie,
     flightClass: String,
+    backgroundColor: Color = TripTheme.colors.primaryBackground,
     padding: Dp = TripTheme.shapes.smallPadding,
 ) {
     Card(
         modifier = modifier
             .fillMaxWidth()
             .padding(padding),
+        backgroundColor = backgroundColor
     ) {
         Column(
             modifier = modifier
@@ -107,12 +109,15 @@ fun CardItemRow(
 private fun BorderCard(
     modifier: Modifier,
     text: String,
+    backgroundColor: Color = TripTheme.colors.primaryBackground,
     color: Color = TripTheme.colors.controlColor,
     padding: Dp = TripTheme.shapes.smallPadding,
     style: TextStyle = TripTheme.typography.caption,
     borderWidth: Dp = 1.dp,
 ) {
-    Card(border = BorderStroke(width = borderWidth, color = color)
+    Card(
+        border = BorderStroke(width = borderWidth, color = color),
+        backgroundColor = backgroundColor
     ) {
         TextWidget(
             modifier = modifier.padding(start = padding, end = padding),

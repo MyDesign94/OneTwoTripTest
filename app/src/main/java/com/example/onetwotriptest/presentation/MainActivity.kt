@@ -23,8 +23,7 @@ class MainActivity : ComponentActivity() {
                 bigPaddingSize = TripSize.Medium,
                 standardPaddingSize = TripSize.Medium,
                 smallPaddingSize = TripSize.Medium,
-                elevationSize = TripSize.Small,
-                darkTheme = false
+                elevationSize = TripSize.Small
             ) {
                 val systemUiController = rememberSystemUiController()
                 SideEffect {

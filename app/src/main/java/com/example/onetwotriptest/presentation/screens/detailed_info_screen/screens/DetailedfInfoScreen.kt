@@ -65,8 +65,8 @@ fun DetailedInfoScreen(
     ) {
         Surface(
             modifier = modifier
-                .fillMaxWidth()
-                .background(TripTheme.colors.secondaryBackground),
+                .fillMaxWidth(),
+            color = TripTheme.colors.primaryBackground
         ) {
             Column(
                 modifier = modifier
